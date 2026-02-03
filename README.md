@@ -7,13 +7,12 @@ This programm simulates pet shelter with different pets workers, each having dif
 User takes care of animals in a shelter. The animals need food, love and cleaning. You hire workers to help.
 
 ## Features
-
-- **Take care of pets**: Each animal has:
+**Take care of pets**: Each animal has:
   - Happy level
   - Hungry level
   - Clean level
 
-- **Hire workers**: Each worker has:
+**Hire workers**: Each worker has:
   - Cleaning skill
   - Selling skill
   - Caring skill
