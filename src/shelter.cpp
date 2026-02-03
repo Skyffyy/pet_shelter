@@ -206,23 +206,18 @@ bool Shelter::update()
 
 void Shelter::show_pet_stats(Pet* pet)
 {
-    cout << "\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" << endl;
-    cout << "  🐾 " << pet->get_name() << " (ID: " << pet->get_id() << ")" << endl;
-    cout << "  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" << endl;
-    cout << "  Статус:        " << (pet->get_alive_status() ? "Живой ✓" : "Мёртвый ✗") << endl;
-    cout << "  Привлекательность: " << pet->get_attractivenes() << "/1000" << endl;
-    cout << "  Голод:         " << pet->get_hunger() << "/100" << endl;
-    cout << "  Счастье:       " << pet->get_happines() << "/1000" << endl;
+    cout << "\n  Pet: " << pet->get_name() << " (ID: " << pet->get_id() << ")" << endl;
+    cout << "  Status:          " << (pet->get_alive_status() ? "Alive" : "Dead") << endl;
+    cout << "  Attractiveness:  " << pet->get_attractivenes() << "/1000" << endl;
+    cout << "  Hunger:          " << pet->get_hunger() << "/100" << endl;
+    cout << "  Happiness:       " << pet->get_happines() << "/1000" << endl;
 }
 
 void Shelter::show_pets_stats()
 {
-    cout << "\n╔════════════════════════════════════════╗" << endl;
-    cout << "║     СТАТИСТИКА ЖИВОТНЫХ В ПРИЮТЕ     ║" << endl;
-    cout << "║     Всего питомцев: " << pets.size() << "                 ║" << endl;
-    cout << "╚════════════════════════════════════════╝" << endl;
+    cout << "\n--- PETS IN SHELTER ---" << endl;
+    cout << "Total pets: " << pets.size() << endl;
     
-    int i = 1;
     for(Pet* pet : pets)
     {
         show_pet_stats(pet);
@@ -249,38 +244,34 @@ void Shelter::addNewTask(const string& employee_id, Task_type task_type, int dur
 void Shelter::showTasks()
 {
     if(tasks.empty()) {
-        cout << "\n📋 Активных задач нет\n" << endl;
+        cout << "\nNo active tasks\n" << endl;
         return;
     }
     
-    cout << "\n╔════════════════════════════════════════╗" << endl;
-    cout << "║        АКТИВНЫЕ ЗАДАЧИ                ║" << endl;
-    cout << "╚════════════════════════════════════════╝" << endl;
+    cout << "\n--- ACTIVE TASKS ---" << endl;
     
     for(Task* task: tasks)
     {    
-        cout << "  Задача " << task->id << ":" << endl;
-        cout << "    Сотрудник ID: " << task->employee_id << endl;
-        cout << "    Тип: " << enum_to_string(task->task_type) << endl;
-        cout << "    Оставшееся время: " << task->duration << " часов" << endl << endl;
+        cout << "\nTask " << task->id << ":" << endl;
+        cout << "  Employee ID: " << task->employee_id << endl;
+        cout << "  Type: " << enum_to_string(task->task_type) << endl;
+        cout << "  Duration: " << task->duration << " hours" << endl;
     }
+    cout << endl;
 }
 
 void Shelter::show_employes()
 {
-    cout << "\n╔════════════════════════════════════════╗" << endl;
-    cout << "║      СОТРУДНИКИ ПРИЮТА                ║" << endl;
-    cout << "║      Всего: " << employes.size() << "                      ║" << endl;
-    cout << "╚════════════════════════════════════════╝" << endl;
+    cout << "\n--- EMPLOYEES ---" << endl;
+    cout << "Total: " << employes.size() << endl;
 
     for(Employee* empl : employes)
     {
-        cout << "\n  👤 " << empl->get_name() << " (ID: " << empl->get_id() << ")" << endl;
-        cout << "  ──────────────────────────────────" << endl;
-        cout << "  💇 Парикмахер:    " << empl->get_grooming_skill_level() << "/10" << endl;
-        cout << "  📢 Маркетинг:     " << empl->get_marketing_skill_level() << "/10" << endl;
-        cout << "  ❤️  Уход:         " << empl->get_caretaking_skill_level() << "/10" << endl;
-        cout << "  💰 Зарплата:      " << empl->get_salary() << "$" << endl;
+        cout << "\nName: " << empl->get_name() << " (ID: " << empl->get_id() << ")" << endl;
+        cout << "  Grooming:  " << empl->get_grooming_skill_level() << "/10" << endl;
+        cout << "  Marketing: " << empl->get_marketing_skill_level() << "/10" << endl;
+        cout << "  Caretaking: " << empl->get_caretaking_skill_level() << "/10" << endl;
+        cout << "  Salary: $" << empl->get_salary() << endl;
     }
     cout << endl;
 }
