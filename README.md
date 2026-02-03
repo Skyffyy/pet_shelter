@@ -2,7 +2,7 @@
 
 This programm simulates pet shelter with different pets workers, each having different own characteristics.
 
-## What is this?
+## Description
 
 User takes care of animals in a shelter. The animals need food, love and cleaning. You hire workers to help.
 
